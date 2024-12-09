@@ -108,6 +108,26 @@ const validateForm = (formSelector) => {
     validateAllFormGroups(formElement);
   });
 
+  const eyeIcons = [...formElement.querySelectorAll('.eye-icon')];
+  if (eyeIcons) {
+    eyeIcons.forEach((eye) => {
+      eye.addEventListener('click', (e) => {
+        console.log('toggle password visibility', e.target);
+        if (e.target.className.includes('fa-eye-slash')) {
+          e.target.classList.remove('fa-eye-slash');
+          e.target.classList.add('fa-eye');
+          e.target.parentElement.parentElement.previousElementSibling.type =
+            'password';
+        } else {
+          e.target.classList.remove('fa-eye');
+          e.target.classList.add('fa-eye-slash');
+          e.target.parentElement.parentElement.previousElementSibling.type =
+            'text';
+        }
+      });
+    });
+  }
+
   formElement.addEventListener('input', (e) => {
     const formGroup = e.target.closest('.form-group');
     const input = formGroup.querySelector('input');
@@ -124,7 +144,6 @@ const validateForm = (formSelector) => {
 
   [...formElement.elements].forEach((element) => {
     element.addEventListener('blur', (e) => {
-      console.log('blurred!');
       const blurredGroup = e.target.closest('.form-group');
       blurredGroup.setAttribute('blurred', '');
       validateSingleFormGroup(blurredGroup);

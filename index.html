@@ -112,7 +112,7 @@
           <!-- password -->
           <div class="form-group flex flex-col my-4">
             <label for="password">Password</label>
-            <div class="flex items-center">
+            <div class="flex items-center relative">
               <input
                 required
                 minlength="8"
@@ -120,15 +120,15 @@
                 id="password"
                 class="w-full border-b-2 border-black outline-none py-2"
               />
-              <div class="flex justify-end space-x-2 -ml-6">
-                <span class="eye-icon hidden">
-                  <i class="fa-solid fa-eye"></i>
-                </span>
+              <div class="flex justify-end space-x-2 absolute right-0">
                 <span class="error-icon hidden text-red-700">
                   <i class="fa-solid fa-circle-exclamation"></i>
                 </span>
                 <span class="success-icon hidden text-green-700">
                   <i class="fa-solid fa-circle-check"></i>
+                </span>
+                <span class="eye-icon hidden">
+                  <i class="fa-solid fa-eye"></i>
                 </span>
               </div>
             </div>
@@ -137,7 +137,7 @@
           <!-- confirm -->
           <div class="form-group flex flex-col my-4">
             <label for="confirm-password">Confirm Password</label>
-            <div class="flex items-center">
+            <div class="flex items-center relative">
               <input
                 match="password"
                 required
@@ -146,12 +146,17 @@
                 id="confirm-password"
                 class="w-full border-b-2 border-black outline-none py-2"
               />
-              <span class="error-icon hidden -ml-6 text-red-700">
-                <i class="fa-solid fa-circle-exclamation"></i>
-              </span>
-              <span class="success-icon hidden -ml-6 text-green-700">
-                <i class="fa-solid fa-circle-check"></i>
-              </span>
+              <div class="flex justify-end space-x-2 absolute right-0">
+                <span class="error-icon hidden text-red-700">
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                </span>
+                <span class="success-icon hidden text-green-700">
+                  <i class="fa-solid fa-circle-check"></i>
+                </span>
+                <span class="eye-icon hidden">
+                  <i class="fa-solid fa-eye"></i>
+                </span>
+              </div>
             </div>
             <div class="error text-xs text-red-700 py-2"></div>
           </div>
