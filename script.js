@@ -1,5 +1,8 @@
 /*
 Clicking the submit button validates all the form groups of the passed form element by creating an array of all the form groups where each group will be validated separately by checking if its input has any of a list of validation options and evaluate its value's validity to display either a success icon or an error message and icon.
+
+The form waits until an input value is entered before giving any validation feedback
+Once validation feedback has been initiated, validation is done live
 */
 
 const validateForm = (formSelector) => {
@@ -112,7 +115,6 @@ const validateForm = (formSelector) => {
   if (eyeIcons) {
     eyeIcons.forEach((eye) => {
       eye.addEventListener('click', (e) => {
-        console.log('toggle password visibility', e.target);
         if (e.target.className.includes('fa-eye-slash')) {
           e.target.classList.remove('fa-eye-slash');
           e.target.classList.add('fa-eye');
@@ -131,7 +133,6 @@ const validateForm = (formSelector) => {
   formElement.addEventListener('input', (e) => {
     const formGroup = e.target.closest('.form-group');
     const input = formGroup.querySelector('input');
-    console.log(input);
     // live validation if form was previously submitted or form group was blurred
     if (formSubmitted || formGroup.hasAttribute('blurred')) {
       validateSingleFormGroup(formGroup);
